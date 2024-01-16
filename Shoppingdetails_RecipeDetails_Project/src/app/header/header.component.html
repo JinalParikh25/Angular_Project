@@ -7,8 +7,11 @@
 
     <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-            <li><a href="#">Recipes</a></li>
-            <li><a href="#">Shopping list</a></li>
+            <li>
+                <!-- <a href="javascript:onRecipeslinkClicked();" #recipesElement>Recipes</a></li> -->
+                <a href="javascript:void(0);" (click)="onRecipeslinkClicked()" #recipesElement>Recipes</a>
+            </li>
+            <li><a href="javascript:void(0);" (click)="onShoppingListlinkClicked()" #shoppingListElement>Shopping list</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">

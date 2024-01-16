@@ -1,9 +1,9 @@
+<app-header (changeToRecipeCompoent) = "showRecipeComponent($event)"></app-header>
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <app-header></app-header>
-      <app-recipe></app-recipe>
-      <app-shopping-list></app-shopping-list>
+      <app-recipe *ngIf = "componentName === 'Recipes'"></app-recipe>
+      <app-shopping-list *ngIf = "componentName === 'Shopping list'"></app-shopping-list>
     </div>
   </div>
 </div>
