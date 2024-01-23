@@ -8,4 +8,5 @@ import { Recipe } from '../recipe-list/recipe.model';
 })
 export class RecipeDetailComponent {
     @Input() recipeDetail : Recipe; 
+    isDropDownOppend = false;
 }
