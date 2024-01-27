@@ -1,7 +1,8 @@
 <a 
     href="javascript:void(0);"
-    class="list-group-item clearfix"  
-    (click)="onRecipeItemClicked()" #recipeItem>
+    [routerLink]="['/recipe',index]"
+    routerLinkActive="active"
+    class="list-group-item clearfix">
     <div class="pull-left">
         <h4 class="list-group-item-heading">{{ recipe.name }}</h4>
         <p class="list-group-item-text">{{ recipe.description }}</p>
@@ -13,8 +14,3 @@
             style="max-height: 50px;">
     </span>        
  </a>
-
- <!-- in this we use @input because we want to pass recipe object value from parent component  -->
- <!-- we can't use @contentchild because @contentchild generally use with <ng-content> and here
-     no need to use <ng-content> 2nd reson is it is generally use as @viewchild
- -->
