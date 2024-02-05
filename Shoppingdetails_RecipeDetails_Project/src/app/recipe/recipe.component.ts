@@ -8,15 +8,16 @@ import { RecipeService } from './recipe.service';
   styleUrl: './recipe.component.css',
 })
 
-export class RecipeComponent implements OnInit {
-  selectedRecipeItem : Recipe;
+export class RecipeComponent {
+  // selectedRecipeItem : Recipe[];
 
-  constructor(private recipeService : RecipeService){
-  }
+  // constructor(private recipeService : RecipeService){
+  // }
 
-  ngOnInit(){
-    this.recipeService.selectedRecipe.subscribe((recipe : Recipe) => {
-        this.selectedRecipeItem = recipe;
-    });
-  }
+  // ngOnInit(){
+  //   debugger;
+  //   this.recipeService.recipeChanged.subscribe((recipe : Recipe[]) => {
+  //       this.selectedRecipeItem = recipe;
+  //   });
+  // }
 }
