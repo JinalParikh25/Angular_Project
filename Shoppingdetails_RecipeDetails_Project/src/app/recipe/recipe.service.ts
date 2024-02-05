@@ -6,7 +6,6 @@ import { Subject } from "rxjs";
 
 
 export class RecipeService{
-   // private recipes : Recipe[] = [];
    recipeChanged = new Subject<Recipe[]>();
     private recipes : Recipe[] = [
         new Recipe(
