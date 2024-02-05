@@ -1,8 +1,13 @@
-import { EventEmitter } from "@angular/core";
+import { EventEmitter, Injectable } from "@angular/core";
 import { Recipe } from "./recipe-list/recipe.model";
 import { Ingredient } from "../shared/ingredient.model";
+import { DataStorageService } from "../shared/data-storage.service";
+import { Subject } from "rxjs";
+
 
 export class RecipeService{
+   // private recipes : Recipe[] = [];
+   recipeChanged = new Subject<Recipe[]>();
     private recipes : Recipe[] = [
         new Recipe(
                     'A Test Recipe',
@@ -22,6 +27,10 @@ export class RecipeService{
                     ])
       ]
 
+    setRecipe(recipe: Recipe[]){
+        this.recipes = recipe;
+    }
+    
     getRecipe(){
         return this.recipes;
     }
@@ -32,4 +41,18 @@ export class RecipeService{
 
     selectedRecipe = new EventEmitter<Recipe>();
     
+    updateRecipe(index:number,recipe:Recipe){
+        this.recipes[index] = recipe;
+        this.recipeChanged.next(this.recipes.slice());
+    }
+
+    addRecipe(recipe:Recipe){
+        this.recipes.push(recipe);
+        this.recipeChanged.next(this.recipes.slice());
+    }
+
+    deleteRecipe(index:number){
+        this.recipes.splice(index,1);
+        this.recipeChanged.next(this.recipes.slice());
+    }
 }
